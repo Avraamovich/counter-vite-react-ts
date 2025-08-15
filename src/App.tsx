@@ -3,22 +3,24 @@ import {Container} from "./components/container/Container.tsx";
 import {Input} from "./components/Input.tsx";
 import {Button} from "./components/Button.tsx";
 import {Wrapp} from "./components/wrapp/Wrapp.tsx";
+import {useState} from "react";
 
 function App() {
-
+    const [isVisible, setIsVisible] = useState(false)
 const buttonHandler = () => {
-    alert("Hello!!!")
+    setIsVisible(!isVisible);
 }
+
 
     return (
         <div>
             <Container>
-                <Wrapp>
+                <Wrapp displayOn={isVisible}>
                     <Input placeholder='Set...'/>
                     <Input placeholder='Set...'/>
                 </Wrapp>
                 <Wrapp>
-                    <Button text='Press me...' onClickButton={buttonHandler}/>
+                    <Button text='Settings' onClickButton={buttonHandler}/>
                 </Wrapp>
             </Container>
         </div>
